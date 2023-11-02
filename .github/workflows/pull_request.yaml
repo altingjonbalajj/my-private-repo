@@ -18,5 +18,8 @@ jobs:
     environment: development
     steps:
       - name: Test environment variables
-        shell: bash
         run: echo $TEST_SECRET
+      - name: Test variables
+        run: echo "$TEST_VARIABLE"
+      - name: Test variables without quotes
+        run: echo $TEST_VARIABLE
