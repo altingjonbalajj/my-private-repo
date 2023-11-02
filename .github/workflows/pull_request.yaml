@@ -18,8 +18,5 @@ jobs:
     environment: development
     steps:
       - name: Test environment variables
-        run: |
-          echo $TEST_VARIABLE
-          echo $TEST_SECRET
-
-          printenv | grep TEST_
+        shell: bash
+        run: echo $TEST_SECRET
