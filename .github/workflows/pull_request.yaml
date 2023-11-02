@@ -20,3 +20,4 @@ jobs:
       - name: Test environment variables
         run: |
           echo $TEST_VARIABLE
+          echo $TEST_SECRET
