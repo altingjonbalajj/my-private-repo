@@ -19,4 +19,4 @@ jobs:
     steps:
       - name: Test environment variables
         run: |
-          printenv
+          echo $TEST_VARIABLE
