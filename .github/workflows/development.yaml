@@ -58,7 +58,7 @@ jobs:
   production:
     runs-on: ubuntu-latest
     needs:
-      - terraform-validate
+      - staging
     name: Deploy to PRODUCTION
     environment: production
     concurrency: production
