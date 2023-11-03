@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to Development
     environment: &DEVELOPMENT development
-    concurrency: **DEVELOPMENT
+    concurrency: *DEVELOPMENT
     steps:
       - name: Deploy
         run: sleep 400
@@ -35,12 +35,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to QA
     environment: &QA qa
-    concurrency: **QA
+    concurrency: *QA
     steps:
       - name: Deploy
         run: sleep 400
 
-        
       # - name: Test variables
       #   run: echo ${{ vars.TEST_VARIABLE }}
       # - name: Test variables without quotes
