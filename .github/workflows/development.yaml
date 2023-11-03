@@ -10,7 +10,7 @@ on:
   #     - "edited"
   #     - "synchronize"
 
-run-name: Pull Request Integration tests during merges
+run-name: Setup & Deploy
 jobs:
   terraform-validate:
     runs-on: ubuntu-latest
