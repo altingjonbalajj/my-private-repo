@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - qa
-    name: Deploy to STAGING
+    name: Deploy to Staging
     environment: staging
     concurrency: staging
     steps:
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - staging
-    name: Deploy to PRODUCTION
+    name: Deploy to Production
     environment: production
     concurrency: production
     steps:
