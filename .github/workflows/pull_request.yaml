@@ -22,5 +22,5 @@ jobs:
       - name: Test variables
         run: echo ${{ vars.TEST_VARIABLE }}
       - name: Test variables without quotes
-        run: echo ${{ secrets.TEST_SECRET }}
+        run: echo ${{ secrets.TEST_SECRETTTT }}
       - run: printenv
