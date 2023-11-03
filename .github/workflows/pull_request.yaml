@@ -12,15 +12,37 @@ on:
 
 run-name: Pull Request Integration tests during merges
 jobs:
-  pull_request_test:
+  terraform-validate:
     runs-on: ubuntu-latest
     name: Integration Test
-    environment: development
     steps:
-      - name: Test environment variables
-        run: echo $TEST_SECRET
-      - name: Test variables
-        run: echo ${{ vars.TEST_VARIABLE }}
-      - name: Test variables without quotes
-        run: echo ${{ secrets.TEST_SECRETTTT }}
-      - run: printenv
+      - name: Install Terraform
+        run: |
+          wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt update && sudo apt install terraform
+
+  development:
+    runs-on: ubuntu-latest
+    name: Deploy to Development
+    environment: &DEVELOPMENT development
+    concurrency: **DEVELOPMENT
+    steps:
+      - name: Deploy
+        run: sleep 400
+
+  qa:
+    runs-on: ubuntu-latest
+    name: Deploy to QA
+    environment: &QA qa
+    concurrency: **QA
+    steps:
+      - name: Deploy
+        run: sleep 400
+
+        
+      # - name: Test variables
+      #   run: echo ${{ vars.TEST_VARIABLE }}
+      # - name: Test variables without quotes
+      #   run: echo ${{ secrets.TEST_SECRETTTT }}
+      # - run: printenv
