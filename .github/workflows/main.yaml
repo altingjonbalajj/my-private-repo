@@ -1,20 +1,20 @@
-name: Pull Request Integration Test
+name: Deploy Terraform to AWS Environments
 on:
   push:
     branches:
       - "main"
-  pull_request:
-    types:
-      - "opened"
-      - "reopened"
-      - "edited"
-      - "synchronize"
+  # pull_request:
+  #   types:
+  #     - "opened"
+  #     - "reopened"
+  #     - "edited"
+  #     - "synchronize"
 
 run-name: Pull Request Integration tests during merges
 jobs:
   terraform-validate:
     runs-on: ubuntu-latest
-    name: Integration Test
+    name: Setup Dependencies
     steps:
       - name: Install Terraform
         run: |
