@@ -25,8 +25,8 @@ jobs:
   development:
     runs-on: ubuntu-latest
     name: Deploy to Development
-    environment: &DEVELOPMENT development
-    concurrency: *DEVELOPMENT
+    environment: development
+    concurrency: development
     steps:
       - name: Deploy
         run: sleep 400
@@ -34,8 +34,8 @@ jobs:
   qa:
     runs-on: ubuntu-latest
     name: Deploy to QA
-    environment: &QA qa
-    concurrency: *QA
+    environment: qa
+    concurrency: qa
     steps:
       - name: Deploy
         run: sleep 400
